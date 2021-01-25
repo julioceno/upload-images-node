@@ -82,6 +82,9 @@ form {
 }
 
 form h3  {
+    
+    font-family: inter;
+    font-weight: 600;
     text-align: center;
     margin-bottom: 1rem;
 }
@@ -135,12 +138,62 @@ form input[type="submit"] {
     width: 15rem;
 
     outline: none;
+
+    font-family: inter;
+    font-weight: 600;
+    color: #54e346;
+    font-size: 1rem;
+    
+    padding: 0 .5rem;
 }
 
 form .input-block  textarea  {
     height: 6rem;
     resize: horizontal;
+    padding:  .5rem;
+
 }
+
+form .input-block .upload-box {
+    font-size: 16px;
+    background-color: white;
+    box-shadow: 10px;
+    width: 15rem;
+    height: 2.5rem;
+    outline: none;
+    font-size: .8rem;
+
+    
+    padding: initial;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 2rem;
+
+    display: flex;
+}
+
+.upload-box::-webkit-file-upload-button {
+    color: white;
+    background-color: #00af91;
+    padding: 1px;
+    border: none;
+
+    font-size: .66rem;
+
+
+    height: 100%;
+    width: 40%;
+    border-radius: 2rem;
+    box-shadow: .4px 0 .4px .4px rgba(0, 0, 0, 0.384);
+    outline: none;
+    padding: 0 .5rem;
+
+    
+}
+
 
 form input[type="submit"] {
     margin-top: 2rem;
@@ -150,6 +203,7 @@ form input[type="submit"] {
     width: 80%;
 
     font-size: 2rem;
+    color: #000;
     font-family: nunito;
     font-weight: 800;
 
@@ -160,9 +214,7 @@ form input[type="submit"] {
     margin-top: 3rem;
 }
 
-.album {
-    background-color: ;
-}
+
 
 img {
     height: 2rem;
