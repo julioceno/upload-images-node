@@ -1,0 +1,169 @@
+html, body {
+    height: 100%;
+
+}
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #252525;
+
+    color: #fff;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #00af91;
+
+    background-color: rgba(0, 0, 0, 0.384);
+
+    height: 7rem;
+    width: 100%;
+}
+
+.header img {
+    height: 8rem;
+    margin-left: -1rem;
+}
+
+.images-secondary {
+    display: flex;
+    width: 13rem;
+    align-items: center;
+
+    margin-top: .5rem;
+}
+
+.images-secondary  img {
+    height: 4rem;
+}
+
+.images-secondary  img:nth-child(4) {
+    height: 3.2rem;
+    margin-top: .4rem;
+    margin-left: -.4rem;
+
+}
+
+form {
+    font-size: 2rem;
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+
+    padding: 2rem;
+    border-radius: .4rem;
+
+    background-color: #83cc2a;
+
+    width: 80vw;
+    width: 23rem;
+
+    margin-top: 3rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+form h3  {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+form h3:after {
+    content: "";
+    display: block;
+
+    width: 100%;
+    border-bottom: 2px solid #fff;
+    margin: .3rem;
+
+    width: 100%;
+}
+
+form .input-block + .input-block {
+    margin-top: 1rem;
+}
+
+form .input-block  {
+    display: flex;
+    flex-direction: column;
+
+}
+
+form .input-block  label {
+    font-size: 1.3rem;
+    margin-bottom: .4rem;
+    width: 90%;
+    line-height: 1.7rem;
+}
+
+form .input-block  label::after {
+    content: "";
+    display: block;
+
+    width: 100%;
+    border-bottom: 2px solid rgb(0, 0, 0);
+    margin: .3rem;
+
+    width: 85%;
+}
+
+form .input-block  input,
+form .input-block  textarea,
+form input[type="submit"] {
+    
+    border: none;
+    height: 2rem;
+    border-radius: .4rem;
+    width: 15rem;
+
+    outline: none;
+}
+
+form .input-block  textarea  {
+    height: 6rem;
+    resize: horizontal;
+}
+
+form input[type="submit"] {
+    margin-top: 2rem;
+
+    height: 2.5rem;
+    border-radius: .4rem;
+    width: 80%;
+
+    font-size: 2rem;
+    font-family: nunito;
+    font-weight: 800;
+
+    align-self: center;
+}
+
+.albums {
+    margin-top: 3rem;
+}
+
+.album {
+    background-color: ;
+}
+
+img {
+    height: 2rem;
+}
