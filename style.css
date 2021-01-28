@@ -28,6 +28,14 @@ body {
     
 }
 
+#centering {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -46,7 +54,7 @@ body {
 .header img {
     min-height: 8rem;
     max-height: 13rem;
-    height: 21vw;
+    height: 19.5vw;
     margin-left: -1rem;
 }
 
@@ -57,6 +65,9 @@ body {
     width: 46vw;
     align-items: center;
 
+    justify-content: flex-end;
+    padding-right: 1rem;
+
     margin-top: .5rem;
     margin-right: .2rem;
 }
@@ -64,13 +75,13 @@ body {
 .images-secondary  img {
     min-height: 4rem;
     max-height: 6.5rem;
-    height: 12.5vw;
+    height: 11.3vw;
 }
 
 .images-secondary  img:nth-child(4) {
     min-height: 3.2rem;
     max-height: 5.5rem;
-    height: 9vw;
+    height: 8.4vw;
     
     margin-top: .4rem;
     margin-left: -.4rem;
@@ -98,7 +109,8 @@ section {
     background-color: #83cc2a;
 
     min-width: 23rem;
-    width: 50vw;
+    max-width: 43rem;
+    width: 70vw;
 
     margin-top: 3rem;
 
@@ -107,11 +119,18 @@ section {
 }
 
 .panel-control h3  {
+    font-size: clamp(2rem, 4.5vw, 4rem);
+    font-family: Righteous;
     
-    font-family: inter;
-    font-weight: 600;
+    letter-spacing: .2rem;
+    
     text-align: center;
     margin-bottom: clamp(1rem, 3vw, 4rem);
+
+
+
+    display: flex;
+    flex-direction: column;
 }
 
 .panel-control h3:after {
@@ -123,6 +142,9 @@ section {
     margin: .3rem;
 
     width: 100%;
+    max-width: 33rem;
+
+    align-self: center;
 }
 
 .panel-control .input-block + .input-block {
@@ -136,7 +158,7 @@ section {
 }
 
 .panel-control .input-block  label {
-    font-size: 1.3rem;
+    font-size: clamp(1.3rem, 2.2vw, 2rem);
     margin-bottom: .4rem;
     width: 90%;
     line-height: 1.7rem;
@@ -152,6 +174,7 @@ section {
     margin: .3rem;
 
     width: 85%;
+    max-width: 15rem;
 }
 
 .panel-control .input-block  input,
@@ -159,7 +182,8 @@ section {
 .panel-control input[type="submit"] {
     
     border: none;
-    height: 2rem;
+    min-height: 2rem;
+    height: 3vw;
     border-radius: .4rem;
     width: 15rem;
 
@@ -340,8 +364,15 @@ hr {
 
 @media(min-width: 480px) {
 
-    .images-secondary  {
-        margin-right: 3rem;
+    
+
+}
+
+
+@media(min-width: 760px) {
+
+    body {
+        background-color: rebeccapurple;
     }
 
 }
