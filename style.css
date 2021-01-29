@@ -104,12 +104,12 @@ section {
     padding: 2rem;
     border-radius: .4rem;
 
-    
+  
 
     background-color: #83cc2a;
 
     min-width: 23rem;
-    max-width: 43rem;
+    max-width: 50rem;
     width: 70vw;
 
     margin-top: 3rem;
@@ -148,7 +148,7 @@ section {
 }
 
 .panel-control .input-block + .input-block {
-    margin-top: 1rem;
+    margin-top: clamp(1rem, 2vw, 3rem);
 }
 
 .panel-control .input-block  {
@@ -158,7 +158,7 @@ section {
 }
 
 .panel-control .input-block  label {
-    font-size: clamp(1.3rem, 2.2vw, 2rem);
+    font-size: clamp(1.3rem, 2.2vw, 1.45rem);
     margin-bottom: .4rem;
     width: 90%;
     line-height: 1.7rem;
@@ -171,10 +171,11 @@ section {
 
     width: 100%;
     border-bottom: 2px solid rgb(0, 0, 0);
-    margin: .3rem;
+    margin: clamp(.3rem, .8vw, .5rem) 0;
 
-    width: 85%;
-    max-width: 15rem;
+    min-width: 15rem;
+    max-width: 17rem;
+    width: 32vw;
 }
 
 .panel-control .input-block  input,
@@ -185,9 +186,13 @@ section {
     min-height: 2rem;
     height: 3vw;
     border-radius: .4rem;
-    width: 15rem;
+    min-width: 15rem;
+    max-width: 17rem;
+    width: 32vw;
 
     outline: none;
+
+    background:#fff;
 
     font-family: inter;
     font-weight: 600;
@@ -199,7 +204,7 @@ section {
 
 .panel-control .input-block  textarea  {
     height: 6rem;
-    resize: horizontal;
+    resize: vertical;
     padding:  .5rem;
 
 }
@@ -208,13 +213,24 @@ section {
     font-size: 16px;
     background-color: white;
     box-shadow: 10px;
-    width: 15rem;
-    height: 2.5rem;
+    min-width: 15rem;
+   
+    min-width: 15rem;
+    max-width: 17rem;
+    width: 32vw;
+   
+    min-height: 2.5rem;
+    max-height: 3rem;
+    height: 5vw;
+
+
     outline: none;
     font-size: .8rem;
 
     
     padding: initial;
+    padding: 0 .4rem 0 0;
+
 
     display: flex;
     align-items: center;
@@ -223,52 +239,67 @@ section {
     border-radius: 2rem;
 
     display: flex;
+
+    cursor: pointer;
 }
 
 .upload-box::-webkit-file-upload-button {
     color: white;
     background-color: #00af91;
-    padding: 1px;
     border: none;
 
-    font-size: .66rem;
-
+    font-size: clamp(.63rem, .9vw, .75rem);
 
     height: 100%;
     width: 40%;
     border-radius: 2rem;
-    box-shadow: .4px 0 .4px .4px rgba(0, 0, 0, 0.384);
     outline: none;
     padding: 0 .5rem;
 
-    
+    transition: background .1s;
 }
 
+.upload-box::-webkit-file-upload-button:hover {
+    background-color: #02947c;
+}
 
 .panel-control input[type="submit"] {
     margin-top: 2rem;
-
-    height: 2.5rem;
+    
     border-radius: .4rem;
+    
+    min-height: 2.5rem;
+    max-height: 3rem;
+    height: 4vw;
+    
     width: 80%;
+    max-width: 17rem;
 
     font-size: 2rem;
-    color: #000;
+    color: rgb(10, 10, 10);
     font-family: nunito;
     font-weight: 800;
 
     align-self: center;
+
+    transition: ease  .15s;
+}
+
+
+.panel-control input[type="submit"]:hover {
+    background:rgba(255, 255, 255, 0.747);
 }
 
 .albums {
-    margin-top: 3rem;
+    margin-top: 5rem;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
 .album + .album {
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .album {
@@ -282,9 +313,12 @@ section {
     font-family: inter;
 
     min-width: 23rem;
-    width: 70vw;
+    max-width: 48rem;
+    width: 65vw;
 
     padding: 1rem 1rem;
+
+    word-wrap: break-word;
 }
 
 
@@ -297,8 +331,13 @@ section {
 }
 
 .album main p {
-    font-size: .95rem;
+    font-size: clamp(.95rem, 2vw, 1rem);
 }
+
+.album main p:nth-child(3) {
+    margin-top: .4rem;
+}
+
 
 .album main input {
     border: none;
@@ -313,6 +352,8 @@ section {
     margin-top: 1rem;
 
     transition: background .2s;
+
+    cursor: pointer;
 }
 
 .album main input:hover {
@@ -327,15 +368,15 @@ hr {
 .album .images {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1.5rem 1rem;
+    grid-gap: 1.5rem 7vw;
 
     align-self: center;
-
     margin-top: 1rem;
 }
 
 .album .images  img {
     min-height: 5.5rem;
+    max-height: 10rem;
     height: 14vw;
     border-radius: .8rem;
 }
@@ -362,17 +403,112 @@ hr {
 }
 
 
-@media(min-width: 480px) {
 
-    
+@media(min-width: 520px) {
+   
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: "colum-one-top"  "colum-one-bottom";
+        grid-gap: clamp(1rem, 2vw, 2rem) 1rem;
+    }
+
+    .panel-control .input-block + .input-block {
+        margin-top: initial;
+    }
+
+    .input-block:nth-child(1) {
+        grid-area: colum-one-top;
+    }
+
+    .input-block:nth-child(2) {
+        grid-area: colum-one-bottom;
+    }
+
+    .panel-control .input-block  label::after {
+        min-width: 13rem;
+        width: 29vw;
+    }
+
+    .panel-control .input-block  input,
+    .panel-control .input-block  textarea {
+        
+        border: none;
+        border-radius: .4rem;
+        min-width: 13rem;
+        width: 29vw;
+
+        padding: 0 .5rem;
+    }
+
+
+    .panel-control input[type="submit"] {
+        align-self: flex-end;
+    }
 
 }
 
-
 @media(min-width: 760px) {
 
-    body {
-        background-color: rebeccapurple;
+    .panel-control .input-block:nth-child(3) label::after {
+        max-width: 20rem;
     }
 
+    .panel-control .input-block  label::after {
+        max-width: 18rem;
+    }
+    
+    .panel-control .input-block  input,
+    .panel-control .input-block  textarea,
+    .panel-control input[type="submit"] {
+        max-width: 18rem;
+    }
+    
+    .panel-control .input-block  input {
+        max-height: 2.5rem;
+    }
+
+    .panel-control .input-block  textarea{
+        padding: .3rem .5rem;
+
+    }
+
+    .panel-control .input-block .upload-box {
+        max-width: 20rem;
+    }
+
+    .upload-box::-webkit-file-upload-button {
+        font-size: clamp(.70rem, .9vw, .80rem);
+    }
+    
+    .album .images {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 1.5rem 1.5rem;
+    }
+
+    .album .images  img {
+        max-height: 8rem;
+    }
+
+    .footer {
+        height: 7rem;
+        font-size: 2rem;
+
+    }
+}
+
+@media(min-width: 1100px) {
+    .albums {
+        margin-top: 8rem;
+
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        
+        grid-gap: 5rem 3rem;
+    }
+
+    .album + .album {
+        margin-top: initial;
+    }
 }
