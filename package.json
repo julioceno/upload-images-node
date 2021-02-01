@@ -1,0 +1,34 @@
+{
+  "name": "upload-images-node",
+  "version": "1.0.0",
+  "description": "aacess  https://julioceno.github.io/upload-images-node/cd",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julioceno/upload-images-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julioceno/upload-images-node/issues"
+  },
+  "homepage": "https://github.com/julioceno/upload-images-node#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.834.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "mysql2": "^2.2.5",
+    "nunjucks": "^3.2.2"
+  }
+}

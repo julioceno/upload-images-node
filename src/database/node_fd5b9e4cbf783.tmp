@@ -1,0 +1,9 @@
+const connect = require('./db-config')
+
+async function getData(path) {
+   const conn = await connect
+   
+   console.log(conn)
+}
+
+getData()
