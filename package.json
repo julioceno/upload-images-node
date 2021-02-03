@@ -18,11 +18,8 @@
     "url": "https://github.com/julioceno/upload-images-node/issues"
   },
   "homepage": "https://github.com/julioceno/upload-images-node#readme",
-  "devDependencies": {
-    "nodemon": "^2.0.7"
-  },
   "dependencies": {
-    "aws-sdk": "^2.834.0",
+    "aws-sdk": "^2.836.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
@@ -30,6 +27,7 @@
     "multer": "^1.4.2",
     "multer-s3": "^2.9.0",
     "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
     "nunjucks": "^3.2.2"
   }
 }
