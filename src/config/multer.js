@@ -44,7 +44,6 @@ const storageTypes = {
     })
 }
 
-
 module.exports = {
     dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'), // o destino da imagem se for ser gravada em disco
 
