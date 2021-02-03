@@ -1,1 +1,1 @@
-aacess  https://julioceno.github.io/upload-images-node/cd
+aacess  https://upload-albums.herokuapp.com/
