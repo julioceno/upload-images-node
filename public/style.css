@@ -378,6 +378,10 @@ hr {
     min-height: 5.5rem;
     max-height: 10rem;
     height: 14vw;
+    min-width: 9rem;
+    width: 25vw;
+    
+    
     border-radius: .8rem;
 }
 
@@ -441,6 +445,11 @@ hr {
         padding: 0 .5rem;
     }
 
+    .panel-control .input-block  textarea  {
+        padding: .5rem;
+
+    }
+
 
     .panel-control input[type="submit"] {
         align-self: flex-end;
@@ -488,6 +497,7 @@ hr {
 
     .album .images  img {
         max-height: 8rem;
+        max-width: 13.5rem;
     }
 
     .footer {

@@ -1,37 +1,71 @@
 const connect = require('./db-config')
+const aws = require('aws-sdk')
+const fs = require('fs')
+const path = require('path')
+const { promisify } = require('util')
+
+
+const s3 = new aws.S3()
 
 async function getData(path) {
    const conn = await connect()
-   const [rows] = await conn.query('SELECT * FROM albums') 
+   const [rows] = await conn.query(path) 
    
-   console.log(rows)
+    return rows
 }
 
-async function insertData(data) {
+async function insertData(album) {
     const conn = await connect()
 
-    let url = data.url 
+    let {urls, keys, name} = album 
+    
+    
+    if (!(urls.replace(/,/g , ''))) {
 
-    if (!url) {
-        url = `${process.env.APP_URL}/files/${data.key}`
+        urls = keys.split(',')
+
+        urls = urls.map( key => {
+           return `${process.env.APP_URL}/files/${key}`
+        }) 
+
+        urls = urls.toString()
     }
 
-    const sql = `INSERT INTO albums (name, keyAlbum, url ) VALUES (?,?,?)`
-    const values = [data.name, data.key, url]
+    const sql = `INSERT INTO albums (name, about, date, images_key, images_url ) VALUES (?, ?, ?, ?, ?)`
+    const values = [album.name, album.about, album.currentDate, album.keys, urls]
     
     conn.query(sql, values)
 }
 
-async function deleteData(id) {
+
+async function deleteData(album) {
     const conn = await connect()
+
+    let {id, images_key} = album
+
+    images_key = images_key.split(',')
 
     const sql = `DELETE from albums WHERE id = "?"`
     const value = [id]
+    
+    if (process.env.STORAGE_TYPE === 's3') {
+        images_key.forEach(key => {
+            s3.deleteObject({
+                Bucket:"upload-albums",
+                Key: key,
+            }).promise();
+        })
+    } else {
+        images_key.forEach(key => {
+            promisify(fs.unlink)(path.resolve(__dirname, '..', '..', 'tmp', 'uploads', key))
+        })
+    }
     
     conn.query(sql, value)
 }
 
 module.exports = {
     getData, 
-    insertData
+    insertData,
+    deleteData
 }

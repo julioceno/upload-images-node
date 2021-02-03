@@ -43,17 +43,17 @@
           <div class="grid">
             <div class="input-block">
               <label for="">Nome do album</label>
-              <input type="text" name="name" />
+              <input type="text" name="name"  required/>
             </div>
   
             <div class="input-block">
               <label for="">Adicione uma descrição</label>
-              <textarea name="about"></textarea>
+              <textarea name="about" required></textarea>
             </div>
   
             <div class="input-block">
               <label for="">Imagens</label>
-              <input type="file" name="file"  class="upload-box"  multiple accept="image/*"/>
+              <input type="file" name="file"  class="upload-box"  multiple accept="image/*" required/>
             </div>
   
             <input type="submit" value="Postar" />
@@ -62,97 +62,41 @@
         </form>
 
         <div class="albums">
+
+       {% for album in albums %}
+          
           <div class="album">
             <main>
-              <h4>Serviço de solda</h4>
-              <p>Dia 21/02/2000 as 19:30</p>
+              <h4>{{album.name}}</h4>
+              <p>{{album.date}}</p>
               
-              <p>muitassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas </p>
-              <form action="">
+              <p> {{album.about}} </p>
+              <form action="/delete/{{album.id}}?_method=DELETE" method="POST">
                 <input type="submit" value="Deletar" />
               </form>
             </main>
 
             <hr />
 
-            <div class="images">
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-            </div>
-          </div>
+           
+            
+            <div class="images-container">
+                <input type="hidden" class="images-url" value="{{album.images_url}}">
 
-          <div class="album">
-            <main>
-              <h4>Serviço de solda</h4>
-              <p>Dia 21/02/2000 as 19:30</p>
+                <div class="images">
+                  <!-- as imagens serão adicionadas aqui pelo javascript -->
+                </div>
               
-              <p>muitassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas </p>
-              <form action="">
-                <input type="submit" value="Deletar" />
-              </form>
-            </main>
 
-            <hr />
 
-            <div class="images">
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
             </div>
+            
+          
           </div>
 
-          <div class="album">
-            <main>
-              <h4>Serviço de solda</h4>
-              <p>Dia 21/02/2000 as 19:30</p>
-              
-              <p>muitassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas </p>
-              <form action="">
-                <input type="submit" value="Deletar" />
-              </form>
-            </main>
+       {% endfor %}
+         
 
-            <hr />
-
-            <div class="images">
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-            </div>
-          </div>
-
-          <div class="album">
-            <main>
-              <h4>Serviço de solda</h4>
-              <p>Dia 21/02/2000 as 19:30</p>
-              
-              <p>muitassssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas  muitas coisas muitas coisas muitas coisas </p>
-              <form action="">
-                <input type="submit" value="Deletar" />
-              </form>
-            </main>
-
-            <hr />
-
-            <div class="images">
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-              <img src="./img/bolsa.png" alt="" />
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -161,4 +105,6 @@
       <p>Clique para ir ao <a href="">repositório</a></p>
     </footer>
   </body>
+
+  <script src="main.js"></script>
 </html>

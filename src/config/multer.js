@@ -31,6 +31,7 @@ const storageTypes = {
         contentType: multerS3.AUTO_CONTENT_TYPE,
         acl: 'public-read',
         key: (req, file, cb) => { // nomeando o arquivo com hash
+
             crypto.randomBytes(16, (err, hash) => {
                 if (err) cb(err)
 
@@ -47,25 +48,5 @@ const storageTypes = {
 module.exports = {
     dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'), // o destino da imagem se for ser gravada em disco
 
-    storage: storageTypes['local'] ,
-    limits: {
-
-        fileSize: 2 * 1024 * 1024
-    },
-    fileFilter: (req, file, cb) => {
-        const allowedMiMes = [
-            'image/jpeg',
-            'image/pjpeg',
-            'image/png',
-            'image/gif',
-        ]
-    
-        if (allowedMiMes.includes(file.mimetype)) {
-            cb(null, true) 
-        } else {
-            cb(new Error('invalid file type!'))
-        }
-    }
-
-    
+    storage: storageTypes[process.env.STORAGE_TYPE] ,
 }

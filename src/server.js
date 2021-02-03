@@ -4,6 +4,7 @@ const express = require('express')
 const morgan = require('morgan')
 const nunjucks = require('nunjucks')
 const path = require('path')
+const methodoverride = require('method-override')
 
 const app = express()
 
@@ -13,12 +14,14 @@ nunjucks.configure('src/view', {
     noCache: true
 })
 
-app.use(express.urlencoded({extended: true}))
-app.use(express.static('public'))
-app.use(morgan('dev'))
-app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))) // usado para desenvolvimento
+app
+    .use(express.urlencoded({extended: true}))
+    .use(express.static('public'))
+    .use(morgan('dev'))
+    .use('/files', express.static(path.resolve(__dirname, '..', 'tmp', 'uploads'))) // usado para desenvolvimento
+    .use(methodoverride('_method'))
 
-app.use(require("./routes"))
+    .use(require("./routes"))
 
-app.listen(3000) 
+    .listen(3000) 
 
