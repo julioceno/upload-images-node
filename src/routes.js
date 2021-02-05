@@ -33,12 +33,12 @@ routes.post('/posts', multer(multerConfig).array('file'), async (req, res) => { 
 
     const date = new Date()
 
-    const day = date.getDay() < 10? `0${date.getDay() + 1}` : date.getDay() + 1
-    const month = date.getMonth() < 10?  `0${date.getMonth() + 1}` : date.getMonth() + 1
+    const day = date.getDay() < 10? `0${date.getDay()}` : date.getDay()
+    const month = date.getMonth() < 10?  `0${date.getMonth()}` : date.getMonth()
     const year = date.getFullYear()
     
     const hour = date.getHours()
-    const minutes = date.getMinutes()
+    const minutes = date.getMinutes() < 10? `0${date.getMinutes()}` : date.getMinutes()
     
     const currentDate = `Dia ${day}/${month}/${year} as ${hour}:${minutes}`
 
